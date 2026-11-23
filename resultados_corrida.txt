@@ -1,0 +1,39 @@
+Todas las pruebas pasaron.
+
+Medición: 1000 búsquedas por tamaño, mejor de 3 repeticiones.
+Tiempos de burbuja, merge sort y las dos búsquedas con listas al azar:
+
+burbuja
+     n    tiempo(s)    razon
+  1000      0.03538        -
+  2000      0.14094     3.98
+  4000      0.58735     4.17
+  8000      2.43898     4.15
+
+merge sort
+     n    tiempo(s)    razon
+  1000      0.00121        -
+  2000      0.00273     2.26
+  4000      0.00597     2.19
+  8000      0.01245     2.09
+
+búsqueda lineal
+     n    tiempo(s)    razon
+  1000      0.01482        -
+  2000      0.02400     1.62
+  4000      0.04949     2.06
+  8000      0.10151     2.05
+
+búsqueda binaria
+     n    tiempo(s)    razon
+  1000      0.00094        -
+  2000      0.00107     1.13
+  4000      0.00117     1.09
+  8000      0.00125     1.07
+
+Resumen de razones (cada medición / la anterior) frente a lo predicho en R1
+algoritmo         1000->2000    2000->4000    4000->8000        predicho
+burbuja                    3.98         4.17         4.15          ~4
+merge sort                 2.26         2.19         2.09        ~2,2
+búsqueda lineal            1.62         2.06         2.05          ~2
+búsqueda binaria           1.13         1.09         1.07    ~1,0-1,1

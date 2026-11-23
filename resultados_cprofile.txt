@@ -1,0 +1,55 @@
+Todas las pruebas pasaron.
+
+Medición: 1000 búsquedas por tamaño, mejor de 3 repeticiones.
+Tiempos de burbuja, merge sort y las dos búsquedas con listas al azar:
+
+burbuja
+     n    tiempo(s)    razon
+  1000      0.03394        -
+  2000      0.14132     4.16
+  4000      0.57916     4.10
+  8000      2.33861     4.04
+
+merge sort
+     n    tiempo(s)    razon
+  1000      0.01227        -
+  2000      0.02263     1.84
+  4000      0.04725     2.09
+  8000      0.10150     2.15
+
+búsqueda lineal
+     n    tiempo(s)    razon
+  1000      0.01520        -
+  2000      0.02424     1.59
+  4000      0.04839     2.00
+  8000      0.09700     2.00
+
+búsqueda binaria
+     n    tiempo(s)    razon
+  1000      0.00137        -
+  2000      0.00151     1.10
+  4000      0.00159     1.05
+  8000      0.00173     1.09
+
+Resumen de razones (cada medición / la anterior) frente a lo predicho en R1
+algoritmo         1000->2000    2000->4000    4000->8000        predicho
+burbuja                    4.16         4.10         4.04          ~4
+merge sort                 1.84         2.09         2.15        ~2,2
+búsqueda lineal            1.59         2.00         2.00          ~2
+búsqueda binaria           1.10         1.05         1.09    ~1,0-1,1
+
+=== cProfile: las 8 funciones con más tiempo acumulado ===
+         2721287 function calls (2601271 primitive calls) in 11.211 seconds
+
+   Ordered by: cumulative time
+   List reduced from 38 to 8 due to restriction <8>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   11.211   11.211 main.py:98(correr)
+        1    0.000    0.000   11.210   11.210 main.py:56(medir_todo)
+       16    0.000    0.000   10.974    0.686 main.py:40(mejor_tiempo)
+       16    0.000    0.000   10.974    0.686 {built-in method builtins.min}
+       64    0.000    0.000   10.974    0.171 main.py:42(<genexpr>)
+       48    0.001    0.000   10.973    0.229 main.py:32(medir)
+       19    9.827    0.517    9.827    0.517 algoritmos.py:14(burbuja)
+120040/24    0.096    0.000    0.756    0.031 algoritmos.py:32(merge_sort)
